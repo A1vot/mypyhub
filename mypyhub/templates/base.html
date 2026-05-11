@@ -1,12 +1,51 @@
+{% load static %}
+
 <!DOCTYPE html> 
-<html lang="ru"> 
+<html lang="ru" data-bs-theme="dark">
   <head>    
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- фавиконки для разных устройств -->
+    <link rel="icon" href="{% static 'img/fav/favicon.ico' %}" type="image">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/fav/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/fav/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/fav/favicon-16x16.png' %}">
+
+    <!-- основной Bootstrap -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <!-- свои стили -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- шрифт Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- иконки Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
     <title>
       {% block title %}{% endblock title %}
-    </title>    
+    </title>
   </head>
-  <body>    
-    {% block content %}{% endblock content %} 
-  </body>
+
+  <body>
+    <div class="container">
+      <!-- шапка сайта -->
+      {% include "includes/header.html" %}
+    </div>    
+
+    <main>
+      <div class="container py-5">
+        <!-- основной контент страниц -->
+        {% block content %}{% endblock content %}            
+      </div>
+    </main>
+
+    <!-- подвал -->
+    {% include "includes/footer.html" %}    
+
+    <!-- Bootstrap JS -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+  </body>  
 </html>

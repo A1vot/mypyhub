@@ -1,7 +1,50 @@
 {% extends "base.html" %}
 
-{% block title %}Лента{% endblock title %}
+{% block title %}MyPyHub{% endblock title %}
 
 {% block content %}
-   {{ posts }}
+
+  <!-- заголовок страницы -->
+  <h1 class="blog-header-logo text-body-emphasis text-decoration-none ms-3">Публикации</h1>
+
+  <div class="row mb-2">
+    {% for post in posts %}
+    <div class="col-md-6">
+
+      <!-- карточка поста в стиле Bootstrap Blog -->
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+
+        <!-- левая часть: текст -->
+        <div class="col p-4 d-flex flex-column position-static">
+
+          <!-- категория поста -->
+          <strong class="d-inline-block mb-2 text-primary-emphasis">
+            {{ post.category }}
+          </strong>
+
+          <!-- заголовок поста (уменьшен через fs-5) -->
+          <h3 class="mb-0 fs-5">{{ post.status }}</h3>
+
+          <!-- дата -->
+          <div class="mb-1 text-body-secondary">{{ post.date }}</div>
+
+          <!-- короткий текст -->
+          <p class="card-text mb-auto">
+            {{ post.text|truncatewords:20 }}
+          </p>
+
+          <!-- ссылка на детальную страницу -->
+          <!-- stretched-link делает кликабельной всю карточку -->
+          <a class="icon-link gap-1 icon-link-hover stretched-link"
+             href="{% url 'blog:post_detail' post.id %}">
+            Читать полностью
+            <i class="bi bi-chevron-right"></i>
+          </a>
+
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
 {% endblock content %}
