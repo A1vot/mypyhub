@@ -82,3 +82,9 @@ main {
 .icon-link-hover:hover {
   color: #5c8dbc; /* чуть светлее при наведении */
 }
+
+/* Ограничиваем размер картинок в правилах */
+.rule-image {
+  max-width: 100px;
+  height: auto;
+}
