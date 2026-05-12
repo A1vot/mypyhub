@@ -3,5 +3,36 @@
 {% block title %}Пост{% endblock title %}
 
 {% block content %}
-   {{ post }}
+
+  <!-- Заголовок поста -->
+  <h1 class="page-title text-body-emphasis text-decoration-none ms-0 mb-4">
+    {{ post.status }}
+  </h1>
+
+  <!-- Дата публикации -->
+  <div class="text-body-secondary card-date-thin">
+    {{ post.date }}
+  </div>
+
+  <!-- Основной блок с текстом поста -->
+  <div class="col-md-12">
+    <!-- карточка поста -->
+    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative card-bg">
+      <!-- левая часть: текст -->
+      <div class="col p-4 d-flex flex-column position-static">
+
+        <!-- короткий текст -->
+        <p class="card-text mb-auto card-text-thin">
+          {{ post.text }}
+        </p>
+
+        <!-- ссылка на посты категории -->
+        <a class="icon-link gap-1 icon-link-hover"
+          href="{% url 'blog:category_posts' post.category %}">
+          #{{ post.category }}
+        </a>
+      </div>
+    </div>
+  </div>
+  
 {% endblock content %}
