@@ -1,6 +1,84 @@
+/* Стиль текстового логотипа в шапке */
 .blog-header-logo {
   font-family: "Inter", sans-serif;
-  font-weight: 700;
+  font-weight: 100;
   font-size: 1.25rem;
 }
 
+/* Заголовки страниц (например: "Публикации") */
+.page-title {
+  font-family: "Inter", sans-serif;
+  font-weight: 100;
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem; /* отступ вниз, чтобы не прилипал к контенту */
+}
+
+/* Заголовок карточки (название поста) */
+.card-title-thin {
+  font-family: "Inter", sans-serif;
+  font-weight: 300 !important; /* делаем тоньше */
+  font-size: 0.95rem;          /* немного меньше стандартного */
+  color: var(--bs-emphasis-color);
+}
+
+/* Короткий текст карточки */
+.card-text-thin {
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 0.8rem;           /* уменьшенный размер */
+  line-height: 1.35;           /* комфортная высота строки */
+  color: var(--bs-secondary-color);
+}
+
+/* Дата публикации в карточке */
+.card-date-thin {
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 0.8rem;           /* такой же размер, как у короткого текста */
+  font-style: italic;          /* курсив */
+  color: var(--bs-secondary-color);
+  opacity: 0.7;                /* делаем мягче */
+  margin-bottom: 0.4rem;       /* расстояние до текста */
+}
+
+/* Всегда показываем вертикальную полосу прокрутки,
+   чтобы страница не прыгала при появлении скролла */
+html {
+  overflow-y: scroll;
+  height: 100%;
+}
+
+/* Делаем тело страницы гибким контейнером:
+   контент растягивается, а футер прижимается к низу */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* высота окна браузера — футер всегда внизу */
+}
+
+/* Основной контент растягивается, футер остаётся внизу */
+main {
+  flex: 1;
+}
+
+/* Цвет категорий (мягкий Python-синий) */
+.text-primary-emphasis {
+  color: #3776ab !important;
+}
+
+/* Фон карточек (лёгкий прозрачный + эффект стекла) */
+.card-bg {
+  background-color: rgba(255, 255, 255, 0.03); /* лёгкий прозрачный фон */
+  backdrop-filter: blur(2px); /* мягкий эффект стекла (опционально) */
+}
+
+/* Цвет ссылок "Читать полностью" */
+.icon-link-hover {
+  color: #3776ab; /* тот же Python-синий */
+  transition: color 0.2s ease;
+}
+
+/* Hover-эффект для ссылок */
+.icon-link-hover:hover {
+  color: #5c8dbc; /* чуть светлее при наведении */
+}

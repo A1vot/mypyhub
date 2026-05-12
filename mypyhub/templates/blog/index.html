@@ -5,14 +5,14 @@
 {% block content %}
 
   <!-- заголовок страницы -->
-  <h1 class="blog-header-logo text-body-emphasis text-decoration-none ms-3">Публикации</h1>
+  <h1 class="page-title text-body-emphasis text-decoration-none ms-0">Публикации</h1>
 
   <div class="row mb-2">
     {% for post in posts %}
     <div class="col-md-6">
 
       <!-- карточка поста в стиле Bootstrap Blog -->
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative card-bg">
 
         <!-- левая часть: текст -->
         <div class="col p-4 d-flex flex-column position-static">
@@ -23,13 +23,15 @@
           </strong>
 
           <!-- заголовок поста (уменьшен через fs-5) -->
-          <h3 class="mb-0 fs-5">{{ post.status }}</h3>
+          <h3 class="mb-0 card-title-thin">{{ post.status }}</h3>
 
           <!-- дата -->
-          <div class="mb-1 text-body-secondary">{{ post.date }}</div>
+          <div class="text-body-secondary card-date-thin">
+            {{ post.date }}
+          </div>
 
           <!-- короткий текст -->
-          <p class="card-text mb-auto">
+          <p class="card-text mb-auto card-text-thin">
             {{ post.text|truncatewords:20 }}
           </p>
 
